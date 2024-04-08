@@ -1,15 +1,20 @@
-import {Link, Outlet} from 'react-router-dom';
+import {Outlet} from 'react-router-dom';
+import {ToastContainer} from 'react-toastify';
 
-export default function Layout() {
+import Container from 'react-bootstrap/Container';
+
+import Header from './Header';
+
+export default function Index() {
     return(
         <>
-            <header>
-                <Link to='/'>Home</Link>
-            </header>
+            <Header />
 
-            <Outlet />
+            <Container style={{marginTop: 90}}>
+                <Outlet />
+            </Container>
 
-            <footer></footer>
+            <ToastContainer />
         </>
     );
 }

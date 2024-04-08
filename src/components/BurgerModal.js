@@ -1,32 +1,28 @@
 import Modal from 'react-bootstrap/Modal';
-import Button from "react-bootstrap/Button";
 import ListGroup from 'react-bootstrap/ListGroup';
 
 export default function BurgerModal({burger, ...props}) {
     return(
         <Modal {...props}>
-            <Modal.Header closeButton>
-                <Modal.Title id="contained-modal-title-vcenter">
-                    {burger.restaurant}
+            <Modal.Header closeButton style={{background: '#a37415', color: '#fcf2de'}}>
+                <Modal.Title id='contained-modal-title-vcenter'>
+                    {burger?.restaurant}
                 </Modal.Title>
             </Modal.Header>
-            <Modal.Body>
+
+            <Modal.Body style={{background: '#fcf2de'}}>
                 <h4>{burger.name}</h4>
-                <p>
-                    {burger.description}
-                </p>
-                <span>Ingredients:</span>
+                <p>{burger.description}</p>
+                <p className='fw-bold'>Ingredients:</p>
+
                 <ListGroup>
                     {burger?.ingredients.map(ingridient => {
                         return(
-                            <ListGroup.Item key={ingridient}>{ingridient}</ListGroup.Item>
+                            <ListGroup.Item key={Math.random()}>{ingridient}</ListGroup.Item>
                         )
                     })}
                 </ListGroup>
             </Modal.Body>
-            <Modal.Footer>
-                <Button onClick={props.onHide}>Close</Button>
-            </Modal.Footer>
         </Modal>
     )
 }
