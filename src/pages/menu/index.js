@@ -7,7 +7,7 @@ import BurgerCard from './BurgerCard';
 
 import Pagination from 'react-bootstrap/Pagination';
 import Row from 'react-bootstrap/Row';
-import Container from 'react-bootstrap/Container'; // Импортируем компонент Container для Bootstrap
+import Container from 'react-bootstrap/Container';
 
 export default function MenuPage() {
     const [currentPage, setCurrentPage] = useState(1);
@@ -26,7 +26,7 @@ export default function MenuPage() {
     };
 
     return (
-        <Container> {/* Обертываем всю разметку в контейнер Bootstrap */}
+        <Container>
             <Row xs={1} md={2} lg={2} xl={2}>
                 {status === 'loading' && <h2>Loading...</h2>}
                 {error && <h2>An error occurred: {error}</h2>}
@@ -36,7 +36,7 @@ export default function MenuPage() {
             </Row>
 
             {burgers && totalPages > 1 && (
-                <Pagination className="justify-content-center mt-3"> {/* Применяем класс justify-content-center для центрирования */}
+                <Pagination className="justify-content-center mt-3">
                     <Pagination.First onClick={() => handlePageChange(1)} />
                     <Pagination.Prev onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1} />
                     {[...Array(totalPages)].map((_, index) => (
